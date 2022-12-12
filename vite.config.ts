@@ -25,7 +25,7 @@ export default defineConfig({
     postcss: {
       plugins: [
         autoprefixer({
-          overrideBrowserslist: ['Chrome > 40', 'ff > 31', 'ie 11'],
+          overrideBrowserslist: ['safari >= 6', 'ff >= 10'],
         }),
       ],
     },
