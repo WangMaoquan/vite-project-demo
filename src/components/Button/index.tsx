@@ -1,7 +1,6 @@
 export function Button() {
   return (
     <button
-      // @ts-ignore
       bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
       text="sm white"
       font="mono light"
