@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import react from '@vitejs/plugin-react';
 import { normalizePath } from 'vite';
+import autoprefixer from 'autoprefixer';
 
 const variablePath = normalizePath(path.resolve('./src/variable.scss'));
 
@@ -20,6 +21,13 @@ export default defineConfig({
       // 其中，name 表示当前文件名，local 表示类名
       // 别的配置 https://github.com/madyankin/postcss-modules
       generateScopedName: '[name]__[local]___[hash:base64:5]',
+    },
+    postcss: {
+      plugins: [
+        autoprefixer({
+          overrideBrowserslist: ['Chrome > 40', 'ff > 31', 'ie 11'],
+        }),
+      ],
     },
   },
 });
