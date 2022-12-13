@@ -2,9 +2,16 @@ import { useState } from 'react';
 import reactLogo from '@assets/react.svg';
 import './App.css';
 import { ReactComponent as ReactSVGLogo } from '@assets/react.svg';
+// ?worker 指明是一个webworker
+// import Worker from './webwork/index.js?worker';
 
 function App() {
   const [count, setCount] = useState(0);
+
+  // const worker = new Worker();
+  // worker.addEventListener('message', (e) => {
+  //   console.log(e);
+  // });
 
   return (
     <div className="App">
