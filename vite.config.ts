@@ -3,6 +3,7 @@ import path from 'path';
 import react from '@vitejs/plugin-react';
 import viteEslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
+import viteImagemin from 'vite-plugin-imagemin';
 
 /**
  * ?url: 表示获取资源的路径，这在只想获取文件路径而不是内容的场景将会很有用
@@ -17,7 +18,33 @@ const PRODUCT_LINK = 'www.baidu.com';
 export default defineConfig({
   base: isProduct ? PRODUCT_LINK : '/',
   root: path.join(__dirname, 'src'),
-  plugins: [react(), viteEslint(), svgr()],
+  plugins: [
+    react(),
+    viteEslint(),
+    svgr(),
+    viteImagemin({
+      // 无损压缩配置，无损压缩下图片质量不会变差
+      optipng: {
+        optimizationLevel: 7
+      },
+      // 有损压缩配置，有损压缩下图片质量可能会变差
+      pngquant: {
+        quality: [0.8, 0.9]
+      },
+      // svg 优化
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox'
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          }
+        ]
+      }
+    })
+  ],
   resolve: {
     alias: {
       '@assets': path.join(__dirname, 'src/assets')
