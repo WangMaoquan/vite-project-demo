@@ -6,5 +6,10 @@ import viteEslint from 'vite-plugin-eslint';
 // https://vitejs.dev/config/
 export default defineConfig({
   root: path.join(__dirname, 'src'),
-  plugins: [react(), viteEslint()]
+  plugins: [react(), viteEslint()],
+  resolve: {
+    alias: {
+      '@assets': path.join(__dirname, 'src/assets')
+    }
+  }
 });
