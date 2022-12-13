@@ -5,12 +5,21 @@ import { ReactComponent as ReactSVGLogo } from '@assets/react.svg';
 // ?worker 指明是一个webworker
 // import Worker from './webwork/index.js?worker';
 
+// 使用vite-plugin-wasm 或者在 .wasm?init
+// import init from './wasm/fib.wasm?init';
+
 function App() {
   const [count, setCount] = useState(0);
 
   // const worker = new Worker();
   // worker.addEventListener('message', (e) => {
   //   console.log(e);
+  // });
+
+  // type FibFunc = (num: number) => number;
+  // init({}).then(({ exports }) => {
+  //   const fibFunc = exports.fib as FibFunc;
+  //   console.log('Fib result:', fibFunc(10));
   // });
 
   return (
