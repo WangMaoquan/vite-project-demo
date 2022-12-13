@@ -31,5 +31,14 @@ export default defineConfig({
    * 都可以当做一个es模块
    * 如果你的项目中还存在其它格式的静态资源，你可以通过assetsInclude配置让 Vite 来支持加载
    */
-  assetsInclude: ['.gltf']
+  assetsInclude: ['.gltf'],
+  build: {
+    /**
+     * Vite 中内置的优化方案是下面这样的
+     * 如果静态资源体积 >= 4KB，则提取成单独的文件
+     * 如果静态资源体积 < 4KB，则作为 base64 格式的字符串内联
+     * assetsInlineLimit 修改为8kB
+     */
+    assetsInlineLimit: 8 * 1024
+  }
 });
