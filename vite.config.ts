@@ -67,5 +67,12 @@ export default defineConfig({
      * assetsInlineLimit 修改为8kB
      */
     assetsInlineLimit: 8 * 1024
+  },
+  optimizeDeps: {
+    // 提前声明需要按需加载的依赖
+    // 间接依赖的声明语法，通过`>`分开, 如`a > b`表示 a 中依赖的 b
+    include: [],
+    // 用于将某些依赖从预构建的过程中排除 需要注意它所依赖的包是否具有 ESM 格式
+    exclude: []
   }
 });
