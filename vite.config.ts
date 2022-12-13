@@ -10,8 +10,12 @@ import svgr from 'vite-plugin-svgr';
  * ?inline: 表示资源强制内联，而不是打包成单独的文件
  */
 
+const isProduct = process.env.NODE_ENV === 'production';
+const PRODUCT_LINK = 'www.baidu.com';
+
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: isProduct ? PRODUCT_LINK : '/',
   root: path.join(__dirname, 'src'),
   plugins: [react(), viteEslint(), svgr()],
   resolve: {
