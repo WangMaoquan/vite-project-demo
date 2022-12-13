@@ -4,6 +4,12 @@ import react from '@vitejs/plugin-react';
 import viteEslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
 
+/**
+ * ?url: 表示获取资源的路径，这在只想获取文件路径而不是内容的场景将会很有用
+ * ?raw: 表示获取资源的字符串内容，如果你只想拿到资源的原始内容，可以使用这个后缀
+ * ?inline: 表示资源强制内联，而不是打包成单独的文件
+ */
+
 // https://vitejs.dev/config/
 export default defineConfig({
   root: path.join(__dirname, 'src'),
